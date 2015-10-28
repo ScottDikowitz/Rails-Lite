@@ -10,6 +10,9 @@ module Phase3
     def render(template_name)
       # File.read(template_name)
       # byebug
+      def initialize(req, res)
+        super(req, res)
+      end
       file = File.open(dir_path = File.dirname(__FILE__) + "/../../views/#{self.class.name.underscore}/" + template_name.to_s + ".html.erb", "r")
       contents = file.read
       erb = ERB.new(contents).result(binding)
